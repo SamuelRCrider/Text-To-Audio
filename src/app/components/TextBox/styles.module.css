@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.textArea {
+    background-color: #393E46;
+    border-radius: 5px;
+    font-family: ui-monospace;
+    border-color: #EEEEEE;
+    color: #EEEEEE;
+}
+
+.textArea:focus {
+    outline-color: #00ADB5;
+}
+
+.convertButton {
+    padding: 8px;
+    border: 0;
+    background-color: #00ADB5;
+    margin-top: 10px;
+    border-radius: 15px;
+    color: #EEEEEE;
+    font-family: ui-monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.recordContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.recordButton {
+    border-radius: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 0;
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    font-family: ui-monospace;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.stopButton {
+    border-radius: 15px;
+    border: 0;
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    font-family: ui-monospace;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: medium;
+}
+
