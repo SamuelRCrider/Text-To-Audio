@@ -33,11 +33,27 @@ const TextToAudio = () => {
   };
 
   const handleStartRecording = () => {
-    // TODO
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+      mediaRecorder = new MediaRecorder(stream);
+
+      mediaRecorder.start();
+      console.log(mediaRecorder.state);
+    });
   };
 
   const handleStopRecording = () => {
-    // TODO
+    if (mediaRecorder?.state == "recording") {
+      mediaRecorder.stop();
+      console.log(mediaRecorder?.state);
+
+      mediaRecorder.ondataavailable = (e) => {
+        audioChunks.push(e.data);
+      };
+
+      // TODO: handle mediaRecorder.onstop
+    } else {
+      console.log("No active recording to stop");
+    }
   };
 
   return (
