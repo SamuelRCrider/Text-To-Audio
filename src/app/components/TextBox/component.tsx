@@ -2,37 +2,43 @@ import React, { useEffect, useState } from "react";
 import s from "./styles.module.css";
 
 const TextToAudio = () => {
+  // Input text, the audio url, and the utterance will change often
+  // By declaring them with useState, they can be easily managed
   const [inputText, setInputText] = useState<string>("");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(
     null
   );
 
+  // Set initial variables to allow for use of the media recorder
   let mediaRecorder: MediaRecorder | null = null;
   let audioChunks: Blob[] = [];
 
+  // Update utterance state every time input text is changed
   useEffect(() => {
     const u = new SpeechSynthesisUtterance(inputText);
     setUtterance(u);
   }, [inputText]);
 
   // Event Handlers
-  const handleConvert = () => {
-    // start media recorder
 
-    // play utterance
+  const handleConvert = () => {
+    // Play utterance
     if (utterance) {
       const synth = window.speechSynthesis;
       synth.speak(utterance);
     } else {
       console.log("Failure, buddy.");
     }
-    //end media recorder
   };
 
-  const handleStartRecording = () => {};
+  const handleStartRecording = () => {
+    // TODO
+  };
 
-  const handleStopRecording = () => {};
+  const handleStopRecording = () => {
+    // TODO
+  };
 
   return (
     <div className={s.container}>
