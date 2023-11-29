@@ -6,6 +6,8 @@
 4. Add profile page where you can view all your wav files and download them again
 5. Deploy onto the internet
 6. Break component into multiple components
+7. whole thing should be compound component and all event handlers should be in data.ts file
+8. input text and utterance can be the same thing if i take the useeffect and just apply it in the onClick of the text to audio button.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

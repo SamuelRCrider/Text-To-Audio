@@ -50,9 +50,25 @@ const TextToAudio = () => {
         audioChunks.push(e.data);
       };
 
-      // TODO: handle mediaRecorder.onstop
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+        const url = URL.createObjectURL(audioBlob);
+        setAudioUrl(url);
+        audioChunks = [];
+      };
     } else {
       console.log("No active recording to stop");
+    }
+  };
+
+  const handleDownload = () => {
+    if (audioUrl) {
+      const link = document.createElement("a");
+      link.href = audioUrl;
+      link.download = "audio.wav";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 
@@ -69,7 +85,7 @@ const TextToAudio = () => {
       />
       {/* TODO: extract buttons into their own component */}
       <button className={s.convertButton} onClick={handleConvert}>
-        Convert To Audio
+        Read Text Aloud
       </button>
       <div className={s.recordContainer}>
         <button className={s.recordButton} onClick={handleStartRecording}>
@@ -79,6 +95,23 @@ const TextToAudio = () => {
           Stop Recording
         </button>
       </div>
+
+      {/* WHAT was I doing? I just added a bunch of classnames and now need to style them */}
+      <div className={s.audioTitleContainer}>
+        <h2 className={s.audioTitle}>Your Recordings</h2>
+        <div className={s.audioDivider}></div>
+      </div>
+
+      {audioUrl && (
+        <div className={s.audioContainer}>
+          <div className={s.audioChildren}>
+            <audio controls src={audioUrl} />
+            <button className={s.downloadButton} onClick={handleDownload}>
+              Download Audio
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
