@@ -1,13 +1,9 @@
 ## Project Goals
 
-1. Configure a database to store wav files of the audio
-2. Make some kind of backend where you hit the database
-3. Add homepage where you are welcomed to site. You will be able to login, signup, or just go straight to the converter.
-4. Add profile page where you can view all your wav files and download them again
-5. Deploy onto the internet
-6. Break component into multiple components
-7. whole thing should be compound component and all event handlers should be in data.ts file
-8. input text and utterance can be the same thing if i take the useeffect and just apply it in the onClick of the text to audio button.
+1. Deploy onto the internet
+2. Break component into multiple components
+3. whole thing should be compound component and all event handlers should be in data.ts file
+4. input text and utterance can be the same thing if i take the useeffect and just apply it in the onClick of the text to audio button.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
