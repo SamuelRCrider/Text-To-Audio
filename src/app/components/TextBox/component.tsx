@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import s from "./styles.module.css";
+import { MdOutlineArrowRightAlt } from "react-icons/md";
 
 const TextToAudio = () => {
   // Input text, the audio url, and the utterance will change often
@@ -81,14 +82,16 @@ const TextToAudio = () => {
         name="textArea"
         placeholder="Enter text here"
       />
-      {/* TODO: extract buttons into their own component */}
-      <button className={s.convertButton} onClick={handleConvert}>
-        Read Text Aloud
-      </button>
+
       <div className={s.recordContainer}>
         <button className={s.recordButton} onClick={handleStartRecording}>
           Start Recording
         </button>
+        <MdOutlineArrowRightAlt className={s.arrow} />
+        <button className={s.convertButton} onClick={handleConvert}>
+          Read Text Aloud
+        </button>
+        <MdOutlineArrowRightAlt className={s.arrow} />
         <button className={s.stopButton} onClick={handleStopRecording}>
           Stop Recording
         </button>
