@@ -5,7 +5,7 @@ const TextToAudio = () => {
   // Input text, the audio url, and the utterance will change often
   // By declaring them with useState, they can be easily managed
   const [inputText, setInputText] = useState<string>("");
-  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [audioUrls, setAudioUrls] = useState<string[]>([]);
   const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(
     null
   );
@@ -53,7 +53,7 @@ const TextToAudio = () => {
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
         const url = URL.createObjectURL(audioBlob);
-        setAudioUrl(url);
+        setAudioUrls((prevUrls) => [...prevUrls, url]);
         audioChunks = [];
       };
     } else {
@@ -61,15 +61,13 @@ const TextToAudio = () => {
     }
   };
 
-  const handleDownload = () => {
-    if (audioUrl) {
-      const link = document.createElement("a");
-      link.href = audioUrl;
-      link.download = "audio.wav";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
+  const handleDownload = (url: string) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "audio.wav";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -96,22 +94,24 @@ const TextToAudio = () => {
         </button>
       </div>
 
-      {/* WHAT was I doing? I just added a bunch of classnames and now need to style them */}
       <div className={s.audioTitleContainer}>
         <h2 className={s.audioTitle}>Your Recordings</h2>
         <div className={s.audioDivider}></div>
-      </div>
 
-      {audioUrl && (
-        <div className={s.audioContainer}>
-          <div className={s.audioChildren}>
-            <audio controls src={audioUrl} />
-            <button className={s.downloadButton} onClick={handleDownload}>
-              Download Audio
-            </button>
-          </div>
+        <div className={s.audioList}>
+          {audioUrls.map((url, index) => (
+            <div key={index} className={s.audioContainer}>
+              <audio controls src={url} />
+              <button
+                className={s.downloadButton}
+                onClick={() => handleDownload(url)}
+              >
+                Download Audio {index + 1}
+              </button>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

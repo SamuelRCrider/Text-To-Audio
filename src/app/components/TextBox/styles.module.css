@@ -61,25 +61,6 @@
     font-size: medium;
 }
 
-.audioContainer {
-    display: flex;
-    margin-top: 10px;
-}
-
-.downloadButton {
-    border-radius: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: 0;
-    background-color: #00ADB5;
-    color: #EEEEEE;
-    font-family: ui-monospace;
-    font-weight: bold;
-    font-size: medium;
-}
-
 .audioTitleContainer {
     display: flex;
     flex-direction: column;
@@ -95,4 +76,37 @@
 .audioDivider {
     border-top: 1px solid #00ADB5;
     width: 80%;
+    margin-top: -10px;
+}
+
+.audioList {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+
+.audioContainer {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.downloadButton {
+    border-radius: 15px;
+    width: 65%;
+    margin-top: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 0;
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    font-family: ui-monospace;
+    font-weight: bold;
+    font-size: medium;
 }
