@@ -3,6 +3,42 @@
     flex-direction: column;
 }
 
+.infoTitle {
+    background-color: #00ADB5;
+    margin: -8px;
+    color: #EEEEEE;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.infoImage {
+    border-radius: 20%;
+}
+
+.title {
+    padding-left: 20px;
+}
+
+.information {
+    color: #EEEEEE;
+    font-family: ui-monospace;
+    display: flex;
+    flex-direction: column;
+}
+
+.note {
+    font-weight: normal;
+}
+
+.howItWorksHeader {
+    margin-bottom: 0;
+}
+
 .textArea {
     background-color: #393E46;
     border-radius: 5px;

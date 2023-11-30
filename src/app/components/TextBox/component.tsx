@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import s from "./styles.module.css";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
+import Image from "next/image";
 
 const TextToAudio = () => {
   // Input text, the audio url, and the utterance will change often
@@ -73,6 +74,36 @@ const TextToAudio = () => {
 
   return (
     <div className={s.container}>
+      <div className={s.infoTitle}>
+        <Image
+          src="/audioicon.png"
+          alt="Text 2 Audio Icon"
+          width={50}
+          height={50}
+          className={s.infoImage}
+        />
+        <h1 className={s.title}>Text 2 Audio</h1>
+      </div>
+      <div className={s.information}>
+        <h2 className={s.note}>
+          This is a free text to audio converter. In order to make it free, your
+          text will be read aloud from your device&apos;s speakers. When you
+          click Start Recording, your device many ask you to allow microphone
+          use. Please click allow! Or else your text will not be recorded! At
+          present, a robot voice will speak your text but I am working on
+          getting a more soothing voice!
+        </h2>
+        <h3 className={s.howItWorksHeader}>How it works:</h3>
+        <ol>
+          <li>
+            Type whatever text you need converted into an audio file in the text
+            area below
+          </li>
+          <li>Click Start Recording and then Read Text Aloud</li>
+          <li>Once your text has been completely read, click Stop Recording</li>
+          <li>Your audio will appear in Your Recordings!</li>
+        </ol>
+      </div>
       <textarea
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}

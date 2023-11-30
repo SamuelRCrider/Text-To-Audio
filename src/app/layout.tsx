@@ -5,7 +5,7 @@ import "./assets/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Text To Audio Converter",
+  title: "Text 2 Audio",
   description: "Free text to audio converter",
   icons: "/audioicon.png",
 };
